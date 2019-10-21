@@ -1,0 +1,23 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  height: 100px;
+}
+
+.card img {
+  height: 200px;
+  width: 126px;
+}
+
+.card {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
