@@ -33,7 +33,6 @@ const getMovie = searchResult => {
     .map(function(el: Element) {
       return { title: el.Title, poster: el.Poster };
     });
-  console.log(movieList);
   return movieList;
 };
 
@@ -51,7 +50,6 @@ function App() {
         }
       })
       .then(response => {
-        console.log(response.data);
         setFilms(getMovie(response.data.Search));
         setLoading(false);
       });
@@ -89,7 +87,7 @@ function App() {
       />
       <button onClick={listFilm}>search</button> */
       }
-      {loading ? <Loader /> : <Row>{filmArray}</Row>}
+      {loading ? <Loader /> : <Row type="flex">{filmArray}</Row>}
     </div>
   );
 }

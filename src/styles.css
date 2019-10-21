@@ -21,3 +21,10 @@
   margin-top: 30px;
   margin-bottom: 20px;
 }
+
+/* @media (max-width: 576px) {
+  .card img {
+    height: 100px;
+    width: 63px;
+  }
+} */
