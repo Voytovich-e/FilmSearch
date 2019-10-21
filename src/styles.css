@@ -22,6 +22,10 @@
   margin-bottom: 20px;
 }
 
+.load {
+  margin-top: 100px;
+}
+
 /* @media (max-width: 576px) {
   .card img {
     height: 100px;
