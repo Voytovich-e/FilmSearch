@@ -23,6 +23,7 @@ interface Film {
 interface Element {
   Title: string;
   Poster: string;
+  imdbID: string;
 }
 const getMovie = searchResult => {
   if (!searchResult) return [];
@@ -31,8 +32,9 @@ const getMovie = searchResult => {
       return film.Type === "movie";
     })
     .map(function(el: Element) {
-      return { title: el.Title, poster: el.Poster };
+      return { title: el.Title, poster: el.Poster, imdbID: el.imdbID };
     });
+  console.log(movieList);
   return movieList;
 };
 
@@ -50,6 +52,7 @@ function App() {
         }
       })
       .then(response => {
+        console.log(response.data);
         setFilms(getMovie(response.data.Search));
         setLoading(false);
       });
@@ -60,7 +63,7 @@ function App() {
   };
 
   const filmArray = films.map((el, index) => {
-    return <Data title={el.title} poster={el.poster} />;
+    return <Data title={el.title} poster={el.poster} imdbID={el.imdbID} />;
   });
 
   return (
