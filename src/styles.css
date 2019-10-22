@@ -22,6 +22,9 @@
   margin-bottom: 20px;
 }
 
+.card img:hover {
+  border: solid black 1px;
+}
 .load {
   margin-top: 100px;
 }

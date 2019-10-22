@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Col } from "antd";
 import axios from "axios";
 import Details from "./Details";
+import "./styles.css";
 
-function Data(props) {
+function Data({ imdbID, poster, title }) {
   const [filmDetails, setFilmDetails] = useState({});
   const [visible, setVisible] = useState(false);
   const detailsRequest = () => {
     axios
       .get("https://www.omdbapi.com/?apikey=673b4974&", {
         params: {
-          i: props.imdbID
+          i: imdbID
         }
       })
       .then(response => {
@@ -29,7 +30,7 @@ function Data(props) {
       <div className="card">
         <img
           onClick={detailsRequest}
-          src={props.poster}
+          src={poster}
           onError={e => {
             e.target.onerror = null;
             e.target.src =
@@ -38,7 +39,7 @@ function Data(props) {
           alt="Avatar"
         />
 
-        <div className="container">{props.title}</div>
+        <div className="container">{title}</div>
         <div>
           <Details
             plot={filmDetails.Plot}
