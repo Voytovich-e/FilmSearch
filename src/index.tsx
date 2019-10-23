@@ -13,12 +13,6 @@ const { Search } = Input;
 interface MovieList {
   title: string;
 }
-let movieList: MovieList[] = [];
-
-interface Film {
-  Title: string;
-  Type: string;
-}
 
 interface Element {
   Title: string;
@@ -27,14 +21,14 @@ interface Element {
 }
 const getMovie = searchResult => {
   if (!searchResult) return [];
-  movieList = searchResult
-    .filter(function(film: Film) {
+  const movieList: MovieList = searchResult
+    .filter(function(film) {
       return film.Type === "movie";
     })
     .map(function(el: Element) {
       return { title: el.Title, poster: el.Poster, imdbID: el.imdbID };
     });
-  console.log(movieList);
+
   return movieList;
 };
 
@@ -52,7 +46,6 @@ function App() {
         }
       })
       .then(response => {
-        console.log(response.data);
         setFilms(getMovie(response.data.Search));
         setLoading(false);
       });

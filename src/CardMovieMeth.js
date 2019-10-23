@@ -14,7 +14,6 @@ function CardMovieMeth({ imdbID, poster, title }) {
         }
       })
       .then(response => {
-        console.log(response.data);
         setFilmDetails(response.data);
         setVisible(true);
       });
