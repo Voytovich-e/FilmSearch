@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Col } from "antd";
 import axios from "axios";
-import ModalPlot from "./ModalPlot";
 import "./styles.css";
 import CardMovie from "./CardMovie";
 
-function CardMovieMeth({ imdbID }) {
+function CardMovieMeth({ imdbID, poster, title }) {
   const [filmDetails, setFilmDetails] = useState({});
   const [visible, setVisible] = useState(false);
   const detailsRequest = () => {
@@ -32,6 +30,8 @@ function CardMovieMeth({ imdbID }) {
       detailsRequest={detailsRequest}
       toggleModal={toggleModal}
       visible={visible}
+      poster={poster}
+      title={title}
     />
   );
 }

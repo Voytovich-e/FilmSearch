@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-import CardMovie from "./CardMovie";
+import CardMovieMeth from "./CardMovieMeth";
 import Loader from "./Loader";
 
 import "./styles.css";
@@ -63,7 +63,14 @@ function App() {
   };
 
   const filmArray = films.map((el, index) => {
-    return <CardMovie title={el.title} poster={el.poster} imdbID={el.imdbID} />;
+    return (
+      <CardMovieMeth
+        title={el.title}
+        poster={el.poster}
+        imdbID={el.imdbID}
+        key={el.imdbID}
+      />
+    );
   });
 
   return (

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col } from "antd";
-import axios from "axios";
+
 import ModalPlot from "./ModalPlot";
 import "./styles.css";
 
@@ -10,12 +10,14 @@ function CardMovie({
   detailsRequest,
   filmDetails,
   toggleModal,
-  visible
+  visible,
+  imdbID
 }) {
   return (
     <Col xs={12} md={6}>
-      <div className="card" onClick={detailsRequest}>
+      <div className="card">
         <img
+          onClick={detailsRequest}
           src={poster}
           onError={e => {
             e.target.onerror = null;
@@ -31,6 +33,7 @@ function CardMovie({
             plot={filmDetails && filmDetails.Plot}
             toggleModal={toggleModal}
             visible={visible}
+            imdbID={imdbID}
           />
         </div>
       </div>
