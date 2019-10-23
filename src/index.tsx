@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-import Data from "./Data";
+import CardMovie from "./CardMovie";
 import Loader from "./Loader";
 
 import "./styles.css";
@@ -63,12 +63,12 @@ function App() {
   };
 
   const filmArray = films.map((el, index) => {
-    return <Data title={el.title} poster={el.poster} imdbID={el.imdbID} />;
+    return <CardMovie title={el.title} poster={el.poster} imdbID={el.imdbID} />;
   });
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      <h1>Find Movies</h1>
       {
         <div>
           <Search
@@ -81,14 +81,6 @@ function App() {
             style={{ width: 300 }}
           />
         </div>
-
-        /* <input
-        onChange={handleTitleChange}
-        value={title}
-        type="text"
-        placeholder="title"
-      />
-      <button onClick={listFilm}>search</button> */
       }
       {loading ? <Loader /> : <Row type="flex">{filmArray}</Row>}
     </div>
